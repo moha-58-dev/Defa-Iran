@@ -1,0 +1,22 @@
+:root {
+  --brand: #0ea5e9;
+}
+
+body {
+  font-family: "Vazirmatn", system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(180deg, rgba(14,165,233,.1), transparent 70%);
+}
+
+/* کارت‌ها */
+.card-hover {
+  transition: transform .25s, box-shadow .25s;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
