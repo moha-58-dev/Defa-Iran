@@ -33,3 +33,30 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // اجرا
 AOS.init({ once: true });
 renderCards();
+// انیمیشن شمارنده آمار
+function animateCounters() {
+  const counters = document.querySelectorAll(".counter");
+  counters.forEach(counter => {
+    const target = +counter.getAttribute("data-count");
+    let current = 0;
+    const step = Math.ceil(target / 100); // سرعت شمارش
+    const interval = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        counter.textContent = target;
+        clearInterval(interval);
+      } else {
+        counter.textContent = current;
+      }
+    }, 30);
+  });
+}
+
+// وقتی اسکرول رسید به بخش Stats → اجرا کن
+window.addEventListener("scroll", () => {
+  const stats = document.getElementById("stats");
+  if (stats && stats.getBoundingClientRect().top < window.innerHeight - 100) {
+    animateCounters();
+  }
+});
+
